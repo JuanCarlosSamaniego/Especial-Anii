@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un momento para nosotros ✨</title>
+    <title>Para ti ✨</title>
     <style>
         body {
             margin: 0;
@@ -11,73 +11,87 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
             font-family: 'Georgia', serif;
             color: #4a4a4a;
+            overflow: hidden;
         }
         #overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: white;
+            background: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10;
-            transition: opacity 1s;
+            transition: opacity 1.5s ease;
         }
-        button {
-            padding: 15px 30px;
+        .start-btn {
+            padding: 15px 40px;
             font-family: 'Georgia', serif;
-            font-size: 1.2rem;
+            font-size: 1rem;
             background: white;
-            border: 1px solid #cfdef3;
-            color: #4a4a4a;
+            border: 1px solid #e2d1c3;
+            color: #a3a3a3;
             cursor: pointer;
-            border-radius: 30px;
-            transition: 0.3s;
+            border-radius: 50px;
+            letter-spacing: 2px;
+            transition: all 0.5s;
         }
-        button:hover { background: #f0f4ff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .start-btn:hover {
+            letter-spacing: 3px;
+            color: #4a4a4a;
+        }
         .container {
             text-align: center;
-            padding: 40px;
+            padding: 20px;
             width: 90%;
-            max-width: 500px;
+            max-width: 450px;
             opacity: 0;
-            transition: opacity 2s;
+            transition: opacity 2.5s ease;
         }
-        #musicPlayer { margin-top: 30px; }
+        h1 { font-weight: normal; font-size: 1.2rem; margin-bottom: 10px; opacity: 0.8; }
+        .pregunta { font-size: 1.8rem; margin: 20px 0; color: #333; }
+        
+        #musicPlayer {
+            margin-top: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .footer { margin-top: 30px; font-size: 0.75rem; font-style: italic; opacity: 0.5; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
     <div id="overlay">
-        <button onclick="iniciar()">Para ti ✨</button>
+        <button class="start-btn" onclick="reveal()">ABRIR CON AMOR ✨</button>
     </div>
 
     <div class="container" id="mainContent">
         <h1>Hola, tú...</h1>
-        <p>Me di cuenta de que nunca te hice esta pregunta, pero hoy quiero hacerlo formalmente.</p>
-        <p style="font-size: 1.4rem;"><b>¿Quieres ser mi novia?</b></p>
+        <p class="pregunta"><b>¿Quieres ser mi novia oficialmente?</b></p>
         
-        <div id="musicPlayer"></div>
+        <div id="musicPlayer">
+            <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
+                frameborder="0" height="175" 
+                style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" 
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" 
+                src="https://embed.music.apple.com/mx/song/opalite/1838810953?l=en-GB&autoplay=1">
+            </iframe>
+        </div>
 
-        <p style="font-style: italic; margin-top: 30px; opacity: 0.7;">"You make everything look like opalite..."</p>
+        <div class="footer">"You make everything look like opalite..."</div>
     </div>
 
     <script>
-        function iniciar() {
-            // Ocultar el botón
+        function reveal() {
             document.getElementById('overlay').style.opacity = '0';
-            setTimeout(() => { document.getElementById('overlay').style.display = 'none'; }, 1000);
-            
-            // Mostrar contenido
-            document.getElementById('mainContent').style.opacity = '1';
-
-            // Insertar el reproductor
-            document.getElementById('musicPlayer').innerHTML = `
-                <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" 
-                style="width:100%;max-width:660px;overflow:hidden;background:transparent;" 
-                src="<iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/mx/song/opalite/1838810953?l=en-GB"></iframe>"></iframe>`;
+            setTimeout(() => {
+                document.getElementById('overlay').style.display = 'none';
+                document.getElementById('mainContent').style.opacity = '1';
+            }, 1500);
         }
     </script>
 </body>
