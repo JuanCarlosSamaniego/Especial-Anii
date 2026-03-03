@@ -3,57 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para ti ✨</title>
+    <title>Un momento para nosotros ✨</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #e0eafc, #cfdef3); /* Colores tipo Opalite */
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
             font-family: 'Georgia', serif;
             color: #4a4a4a;
-            text-align: center;
         }
+        #overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            transition: opacity 1s;
+        }
+        button {
+            padding: 15px 30px;
+            font-family: 'Georgia', serif;
+            font-size: 1.2rem;
+            background: white;
+            border: 1px solid #cfdef3;
+            color: #4a4a4a;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        button:hover { background: #f0f4ff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .container {
-            background: rgba(255, 255, 255, 0.6);
+            text-align: center;
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-            max-width: 80%;
+            width: 90%;
+            max-width: 500px;
+            opacity: 0;
+            transition: opacity 2s;
         }
-        h1 { font-size: 1.8rem; margin-bottom: 20px; font-weight: normal; }
-        p { font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; }
-        .qr-section img {
-            width: 150px;
-            height: 150px;
-            border: 5px solid white;
-            border-radius: 10px;
-        }
-        .footer { margin-top: 20px; font-size: 0.9rem; font-style: italic; opacity: 0.7; }
+        #musicPlayer { margin-top: 30px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hola, tú...</h1>
-        <p>
-            Me di cuenta de que, aunque ya somos todo el uno para el otro, 
-            nunca te hice esta pregunta de la forma en que te lo mereces. 
-            <br><br>
-            <b>¿Quieres ser mi novia oficialmente?</b>
-        </p>
-        
-        <div class="qr-section">
-            <p style="font-size: 0.8rem;">Escanea esto para escuchar nuestra canción:</p>
-            <img src="qr.png" alt="QR Apple Music">
-        </div>
 
-        <div class="footer">
-            "You make everything look like opalite..."
-        </div>
+    <div id="overlay">
+        <button onclick="iniciar()">Para ti ✨</button>
     </div>
+
+    <div class="container" id="mainContent">
+        <h1>Hola, tú...</h1>
+        <p>Me di cuenta de que nunca te hice esta pregunta, pero hoy quiero hacerlo formalmente.</p>
+        <p style="font-size: 1.4rem;"><b>¿Quieres ser mi novia?</b></p>
+        
+        <div id="musicPlayer"></div>
+
+        <p style="font-style: italic; margin-top: 30px; opacity: 0.7;">"You make everything look like opalite..."</p>
+    </div>
+
+    <script>
+        function iniciar() {
+            // Ocultar el botón
+            document.getElementById('overlay').style.opacity = '0';
+            setTimeout(() => { document.getElementById('overlay').style.display = 'none'; }, 1000);
+            
+            // Mostrar contenido
+            document.getElementById('mainContent').style.opacity = '1';
+
+            // Insertar el reproductor
+            document.getElementById('musicPlayer').innerHTML = `
+                <iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="150" 
+                style="width:100%;max-width:660px;overflow:hidden;background:transparent;" 
+                src="<iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="175" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/mx/song/opalite/1838810953?l=en-GB"></iframe>"></iframe>`;
+        }
+    </script>
 </body>
 </html>
