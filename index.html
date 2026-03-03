@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para ti ✨</title>
+    <title>Para Anii ❤️</title>
     <style>
         body {
             margin: 0;
@@ -11,7 +11,8 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            /* Degradado en tonos Rosa Palo / Dusty Rose */
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebcdcd 100%);
             font-family: 'Georgia', serif;
             color: #4a4a4a;
             overflow: hidden;
@@ -31,36 +32,48 @@
             font-family: 'Georgia', serif;
             font-size: 1rem;
             background: white;
-            border: 1px solid #e2d1c3;
+            border: 1px solid #ebcdcd; /* Borde rosa suave */
             color: #a3a3a3;
             cursor: pointer;
             border-radius: 50px;
             letter-spacing: 2px;
             transition: all 0.5s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
         .start-btn:hover {
             letter-spacing: 3px;
             color: #4a4a4a;
+            background: #fffcfc;
         }
         .container {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             width: 90%;
             max-width: 450px;
             opacity: 0;
             transition: opacity 2.5s ease;
+            background: rgba(255, 255, 255, 0.3); /* Fondo sutil para el texto */
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
         }
-        h1 { font-weight: normal; font-size: 1.2rem; margin-bottom: 10px; opacity: 0.8; }
-        .pregunta { font-size: 1.8rem; margin: 20px 0; color: #333; }
+        h1 { font-weight: normal; font-size: 1.8rem; margin-bottom: 20px; color: #333; }
+        
+        .mensaje-completo { 
+            font-size: 1.3rem; 
+            line-height: 1.6; 
+            margin: 25px 0; 
+            color: #333;
+            font-style: italic;
+        }
         
         #musicPlayer {
-            margin-top: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            margin-top: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-radius: 12px;
             overflow: hidden;
         }
 
-        .footer { margin-top: 30px; font-size: 0.75rem; font-style: italic; opacity: 0.5; letter-spacing: 1px; }
+        .footer { margin-top: 40px; font-size: 0.75rem; font-style: italic; opacity: 0.5; letter-spacing: 1px; }
     </style>
 </head>
 <body>
@@ -70,8 +83,13 @@
     </div>
 
     <div class="container" id="mainContent">
-        <h1>Hola, tú...</h1>
-        <p class="pregunta"><b>¿Quieres ser mi novia oficialmente?</b></p>
+        <h1>Hola Anii ❤️</h1>
+        
+        <div class="mensaje-completo">
+            Gracias por ser parte de mi historia.
+            <br><br>
+            ¿Me dejas ser el protagonista de la tuya como tu novio?
+        </div>
         
         <div id="musicPlayer">
             <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" 
